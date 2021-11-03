@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express.Router();
 const mongoose=require('mongoose');
-mongoose.connect('mongodb+srv://HarshaK:x1LpiWBEqJZlTIug@cluster0.2s17q.mongodb.net/datastimulator?retryWrites=true&w=majority',{useUnifiedTopology:true,useNewUrlParser:true});
+mongoose.connect('mongodb+srv://name:password@cluster0.2s17q.mongodb.net/datastimulator?retryWrites=true&w=majority',{useUnifiedTopology:true,useNewUrlParser:true});
 const Schema=mongoose.Schema
 const db=mongoose.connection
 app.post('/schema/type/user',async(req,res)=>{
@@ -11,13 +11,11 @@ app.post('/schema/type/user',async(req,res)=>{
     try{
         const schema = new Schema(val)
         const sample = mongoose.model(tname,schema);
-        res.status(201).send(sample);
+        res.status(201).send("created");
     }catch(e){
         res.status(400).send(e.message)
     }
 });
-
-
 
 app.delete("/schema/type/user", async (req, res) => {
     var tname=req.query.tablename
@@ -30,8 +28,9 @@ app.delete("/schema/type/user", async (req, res) => {
 });
 
 app.get('/schema/type/user',async(req,res)=>{
+    var tname=req.query.tablename
     try{
-        const names=db.db.listCollections()
+        const names=db.tname.find().pretty()
         res.status(201).send(names)
     }catch(e){
         res.status(400).send(e.message)

@@ -53,7 +53,7 @@ app.get('/dob/type/user',async(req,res)=>{
 
 
 app.get('/page/type/user', async (req, res) => {
-    const { company='foxsense', offset = 1, limit =2  } = req.query;
+    const { company='', offset = 1, limit =2  } = req.query;
     try {
       const pages = await User.find({company:company})
         .limit(limit*1)

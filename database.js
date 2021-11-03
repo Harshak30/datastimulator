@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 const validator= require('validator');
-mongoose.connect('mongodb+srv://HarshaK:x1LpiWBEqJZlTIug@cluster0.2s17q.mongodb.net/datastimulator?retryWrites=true&w=majority',{useUnifiedTopology:true,useNewUrlParser:true});
+mongoose.connect('mongodb+srv://name:password@cluster0.2s17q.mongodb.net/datastimulator?retryWrites=true&w=majority',{useUnifiedTopology:true,useNewUrlParser:true});
 const Schema=mongoose.Schema
 const userSchema = new Schema({
     first_name:{
